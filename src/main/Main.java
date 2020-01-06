@@ -17,7 +17,7 @@ public class Main
     public static void main (String [] args)
     {
     	
-       /* GestorBD dbManager = new GestorBD("Comunio.db");
+        /*GestorBD dbManager = new GestorBD("Comunio.db");
 
         dbManager.createLink();
         dbManager.resetearPujas();

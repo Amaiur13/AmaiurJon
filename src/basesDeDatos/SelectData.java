@@ -521,6 +521,7 @@ public class SelectData
      * @param nombreJugador el jugador cuyas pujas se analizan
      * @return devuelve objeto de tipo puja, la que mas cantidad haya puesto
      */
+
     public static Puja selectPujaGanadora (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayMarket, String nombreJugador)
     {
         //String sql = "SELECT jugador, MAX(puja) as pujaMax, pujador FROM Pujas WHERE jugador = ?";
@@ -565,6 +566,8 @@ public class SelectData
         }
         return pujaGanadora;
     }
+
+
 
     public static int selectAllPujasAboutPlayer (String nomJugador)
     {

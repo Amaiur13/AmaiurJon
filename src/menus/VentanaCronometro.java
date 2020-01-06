@@ -8,9 +8,10 @@ import java.awt.*;
 public class VentanaCronometro extends JFrame
 {
     private JLabel label;
-    static int hora=0, minuto=2, segundo=0;
+    int hora=0, minuto=2, segundo=0;
     Puja pujaRealizada;
     private JLabel infoJugador;
+    static int contadorHilos = 0;
 
     public VentanaCronometro (Puja puja)
     {
@@ -34,7 +35,7 @@ public class VentanaCronometro extends JFrame
         String info = pujaRealizada.getJugador().getNombre();
         infoJugador = new JLabel(info);
         infoJugador.setFont((new Font("Traditional Arabic", Font.PLAIN, 15)));
-        infoJugador.setBackground(Color.blue);
+        infoJugador.setForeground(Color.blue);
         infoJugador.setBounds(1,1, 130, 45);
         getContentPane().add(infoJugador);
 
@@ -44,8 +45,15 @@ public class VentanaCronometro extends JFrame
 
     public void iniciarHiloCronometro()
     {
-        CronometroThread hilo = new CronometroThread(label);
-        hilo.start();
+        CronometroThread [] arrayHilos = new CronometroThread[10];
+
+        arrayHilos[contadorHilos] = new CronometroThread(label, VentanaCronometro.this, pujaRealizada);
+        arrayHilos[contadorHilos].start();
+        contadorHilos++;
+
+
+       // CronometroThread hilo = new CronometroThread(label, VentanaCronometro.this, pujaRealizada);
+        //hilo.start();
     }
 
 }

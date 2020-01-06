@@ -9,6 +9,7 @@ import main.Login;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 /** Esta clase define el menu del administrador
@@ -59,10 +60,12 @@ public class MenuAdministrador
     {
         boolean reset=false;
         GestorBD gestor = new GestorBD("Comunio.db");
+
         for (int i=0; i<arrayMarket.size();i++)
         {
             Puja ganador = SelectData.selectPujaGanadora(arrayUsuarios,arrayMarket,arrayMarket.get(i).getNombre());
             if (!(ganador == null)) {
+                String mensaje = ganador.getJugador().getNombre() + " puja: " + ganador.getPuja() + " pujador: " + ganador.getPujador().getUser();
                 System.out.println(ganador.getJugador().getNombre() + " puja: " + ganador.getPuja() + " pujador: " + ganador.getPujador().getUser());
                 gestor.createLink();
                 //asigna jugador al que mas ha pujado y pone en venta a 0 (pasa a no estar en venta)
@@ -87,6 +90,41 @@ public class MenuAdministrador
         String x = Utilidades.leerTexto();
         menuAdministrador(arrayUsuarios, arrayJugadores, arrayMarket);
     }
+
+    public static void compararPujasAutomaticas (ArrayList <Jugador> arrayMarket, ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores, Puja puja)
+    {
+        boolean reset=false;
+        GestorBD gestor = new GestorBD("Comunio.db");
+
+        Puja ganador = SelectData.selectPujaGanadora(arrayUsuarios,arrayMarket, puja.getJugador().getNombre());
+        //System.out.println(ganador.getPujador() + ganador.getJugador().getNombre());
+        if (!(ganador == null))
+        {
+            String mensaje = ganador.getJugador().getNombre() + " puja: " + ganador.getPuja() + " pujador: " + ganador.getPujador().getUser();
+            JOptionPane.showMessageDialog(null, mensaje);
+            //System.out.println(ganador.getJugador().getNombre() + " puja: " + ganador.getPuja() + " pujador: " + ganador.getPujador().getUser());
+            gestor.createLink();
+            //asigna jugador al que mas ha pujado y pone en venta a 0 (pasa a no estar en venta)
+            gestor.updateDataPuja(ganador.getJugador().getNombre(), 0, ganador.getPujador().getUser());
+            int dineroRestante = (int) (ganador.getPujador().getDinero() - ganador.getPuja());
+            float nuevoValor = ganador.getPujador().getValorEquipo() + ganador.getJugador().getValor();
+            gestor.updateDataEnVenta(ganador.getPujador().getUser(), dineroRestante, nuevoValor,0);
+            gestor.closeLink();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "La puja ya ha sido tratada por el administrador.");
+        }
+
+        //gestor.createLink();
+        //gestor.resetearPujas();
+        LecturaEscrituraFichero.escribirFichero(arrayMarket,1 );
+        //gestor.crearPujas();
+        //gestor.closeLink();
+
+    }
+
+
 
     /** Este metodo define la puntuacion de cada jugador despues del partido de la jornada
      *
