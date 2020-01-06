@@ -287,10 +287,15 @@ public class MenuMercado extends Thread
         dbManag.insertData(arrayPujas, "Pujas");
         dbManag.closeLink();
 
+        int numPujas = SelectData.selectAllPujasAboutPlayer(oferta.getJugador().getNombre());
+
         System.out.println("Tu oferta ha sido guardada, toca cualquier boton para volver al menu del mercado.");
 
-        VentanaCronometro ventanaCron = new VentanaCronometro();
-        ventanaCron.setVisible(true);
+        if (numPujas == 1)
+        {
+            VentanaCronometro ventanaCron = new VentanaCronometro(oferta);
+            ventanaCron.setVisible(true);
+        }
 
         String x = Utilidades.leerTexto();
         MenuUsuario.menuUsuario(arrayUsuarios, arrayJugadores, usuario);

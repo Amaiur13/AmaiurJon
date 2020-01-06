@@ -566,6 +566,32 @@ public class SelectData
         return pujaGanadora;
     }
 
+    public static int selectAllPujasAboutPlayer (String nomJugador)
+    {
+        String sql = "SELECT count(jugador) AS numPujas from Pujas Where jugador = '" + nomJugador + "'";
+        int numPujas = 0;
+        try
+                (
+                        Connection conn = connect();
+                        Statement stmt  = conn.createStatement();
+                        ResultSet rs    = stmt.executeQuery(sql);
+                        //PreparedStatement pstmt = conn.prepareStatement(sql)
+                ) {
+
+            //pstmt.setString(1,nombreJugador);
+            // loop through the result set
+            while (rs.next())
+            {
+                numPujas = rs.getInt("numPujas");
+            }
+            } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return numPujas;
+    }
+
+
+
     /**
      * Selecciona todos los equipos de los jugadores, sin repeticiones
      * @return devuelve arraylist tipo string con los equipos diferentes
