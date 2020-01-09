@@ -105,6 +105,6 @@ public class Delantero extends Jugador implements InterfazGeneral
     @Override
     public String toString()
     {
-        return this.getNombre() + "  " + this.getDemarcacion() + "   Puntos jornada anterior: " + this.getPoints() + " puntos   " + "   Puntos totales: " + super.getPuntosTotales() + "   " +  this.getTeam() + "  Valor: " + this.getValor();
+        return this.getNombre();
     }
 }

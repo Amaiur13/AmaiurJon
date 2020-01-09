@@ -1,1 +1,1 @@
-Mendy;Areola;Nolito;Fede Valverde;Jovic;Soldado;Nacho;Riqui Puig;Navas;Munir;Yerai;Griezmann;Dembele;Ansu fati;;;;;;true
+Munir;Fede Valverde;Areola;Nolito;Yangel;Ocampos;James;Carrico;Riqui Puig;Nacho;Yerai;Griezmann;Dembele;Ansu fati;;;;;;true

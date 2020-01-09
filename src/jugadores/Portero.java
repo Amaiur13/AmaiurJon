@@ -155,6 +155,7 @@ public class Portero extends Jugador implements InterfazDefensiva
     @Override
     public String toString()
     {
-        return this.getNombre() + "  " + this.getDemarcacion() + "   Puntos jornada anterior: " + this.getPoints() + " puntos   " + "   Puntos totales: " + super.getPuntosTotales() + "   " +  this.getTeam() + "  Valor: " + this.getValor();
+        return this.getNombre();
     }
 }
+

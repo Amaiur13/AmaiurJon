@@ -92,6 +92,7 @@ public class MenuEstadisticas
 				int valor = (int) control.getValue();
 				arrayJugadores.stream().filter(w -> w.getPuntosTotales() < valor)
 									   .sorted(Comparator.comparingInt(Jugador::getPuntosTotales).reversed())
+						               .map(a -> a.getNombre() + "   Puntos jornada anterior: " + a.getPoints() + "   Puntos totales: " + a.getPuntosTotales())
 									   .forEach(System.out::println);
 	
 				framePuntos.dispose();
@@ -123,6 +124,7 @@ public class MenuEstadisticas
 				int valor = (int) control1.getValue();
 				arrayJugadores.stream().filter(w -> w.getPuntosTotales() > valor)
 								       .sorted(Comparator.comparingInt(Jugador::getPuntosTotales))
+						               .map(a -> a.getNombre() + "   Puntos jornada anterior: " + a.getPoints() + "   Puntos totales: " + a.getPuntosTotales())
 									   .forEach(System.out::println);
 				
 				framePuntos.dispose();
@@ -164,7 +166,7 @@ public class MenuEstadisticas
 	public static void filtrarPorValor (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList<Jugador> arrayJugadores, UsuariosYadmins usuario)
 	{
 		Quicksort.quicksort(arrayJugadores, 0, arrayJugadores.size() - 1);
-		arrayJugadores.forEach(System.out::println);
+		arrayJugadores.stream().map(a -> a.getNombre() + "  VALOR: " + a.getValor()).forEach(b -> System.out.println(b));
 		
 		System.out.println("\nPulsa cualquier boton para volver al menu de estadisticas: ");
 		String a = Utilidades.leerTexto();

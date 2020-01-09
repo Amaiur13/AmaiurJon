@@ -8,6 +8,7 @@ import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 /** Esta clase se encarga de todo lo relacionado con la plantilla de cada usuario
@@ -95,20 +96,27 @@ public class MenuMiPlantilla
     {
         //ArrayList <Alineacion> arrayAlineaciones = LecturaEscrituraFichero.leerFicheroAlineacion(arrayUsuarios, arrayJugadores);
         ArrayList <Alineacion> arrayAlineaciones = SelectData.selectAllAlineaciones(arrayUsuarios, arrayJugadores);
-        Alineacion aux = null;
+        //Alineacion aux;
 
-        for (int i=0; i<arrayAlineaciones.size(); i++)
+        Alineacion alin = arrayAlineaciones.stream().filter(a -> a.getEntrenador().getUser().equals(usuario.getUser())).findFirst().orElse(null); //si no encuentra uno alin=null
+        
+       /* for (int i=0; i<arrayAlineaciones.size(); i++)
         {
             if (arrayAlineaciones.get(i).getEntrenador().equals(usuario))
             {
                 aux = arrayAlineaciones.get(i);
                 System.out.println(aux);
             }
-        }
+        }*/
 
-        if (aux == null)
+        if (alin == null)
         {
             System.out.println("Aun no has puesto ninguna alineacion " + usuario.getUser() + "!");
+        }
+
+        else
+        {
+            System.out.println(alin);
         }
 
         System.out.print("\n\nPulsa cualquier boton para volver al menú: ");

@@ -99,7 +99,7 @@ public class Main
         arrayJugadores.add("60;Munir;Delantero;100000;0;120000;Sevilla;0;0;0;0;0;1;comunio;0;0;0;0");
         arrayJugadores.add("61;Chicharito;Delantero;100000;0;120000;Sevilla;0;0;0;0;0;1;comunio;0;0;0;0");
         arrayJugadores.add("62;Soldado;Delantero;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
-        arrayJugadores.add("63;Montoro;Medioncetro;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
+        arrayJugadores.add("63;Montoro;Mediocentro;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
         arrayJugadores.add("64;Darwin Machis;Delantero;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
         arrayJugadores.add("65;Antonio Puertas;Delantero;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
         arrayJugadores.add("66;Yangel;Mediocentro;100000;0;120000;Granada;0;0;0;0;0;1;comunio;0;0;0;0");
