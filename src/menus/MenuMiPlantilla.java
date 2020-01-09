@@ -8,7 +8,9 @@ import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /** Esta clase se encarga de todo lo relacionado con la plantilla de cada usuario
@@ -99,7 +101,7 @@ public class MenuMiPlantilla
         //Alineacion aux;
 
         Alineacion alin = arrayAlineaciones.stream().filter(a -> a.getEntrenador().getUser().equals(usuario.getUser())).findFirst().orElse(null); //si no encuentra uno alin=null
-        
+
        /* for (int i=0; i<arrayAlineaciones.size(); i++)
         {
             if (arrayAlineaciones.get(i).getEntrenador().equals(usuario))
@@ -424,7 +426,9 @@ public class MenuMiPlantilla
         GestorBD bdGestor = new GestorBD("Comunio.db");
         bdGestor.createLink();
         Alineacion alin = null;
-        for (Alineacion a : arrayAlin)
+
+         alin = arrayAlin.stream().filter(s -> s.getEntrenador().getUser().equals(usuario.getUser())).findFirst().orElse(null);
+        /*for (Alineacion a : arrayAlin)
         {//si hay una alineacion del mismo entrenador en la bd la borra
             if (a.getEntrenador().getUser().equals(usuario.getUser()))
             {
@@ -432,18 +436,22 @@ public class MenuMiPlantilla
                 arrayAlin.remove(alin);
                 break;
             }
-        }
+        }*/
         if (alin != null)
         {
+            arrayAlin.remove(alin);
             bdGestor.deleteData("Alineaciones", "entrenador", usuario.getUser());
         }
         bdGestor.closeLink();
 
-        ArrayList <Alineacion> arrayBorrar = new ArrayList<>();
-        for (Alineacion b: arrayAlin)
+
+        List<Alineacion> arrayBorrar = new ArrayList<>();
+        arrayBorrar = arrayAlin.stream().collect(Collectors.toList());
+
+        /*for (Alineacion b: arrayAlin)
         {//deja vacio arrayAlin para k proximamente escriba la nueva alineacion y lo suba a la bd solo esa.
             arrayBorrar.add(b);
-        }
+        }*/
         arrayAlin.removeAll(arrayBorrar);
 
         return arrayAlin;
@@ -456,12 +464,17 @@ public class MenuMiPlantilla
      */
     public static void actualizarTablaAlineacion (ArrayList <Alineacion> arrayAlin)
     {
-        ArrayList <String> alineacionStr = new ArrayList<>();
+        List <String> alineacionStr = new ArrayList<>();
         GestorBD bdMan = new GestorBD("Comunio.db");
         bdMan.createLink();
 
+        alineacionStr = arrayAlin.stream().map(a -> a.getDibujo() + ";" + a.getPortero() + ";" +
+                a.getDefensa1() + ";" + a.getDefensa2() + ";" + a.getDefensa3() + ";" + a.getDefensa4() + ";" + a.getDefensa5() + ";" +
+                a.getMediocentro1() + ";" + a.getMediocentro2() + ";" + a.getMediocentro3() + ";" + a.getMediocentro4() + ";" + a.getMediocentro5() + ";" +
+                a.getDelantero1() + ";" + a.getDelantero2() + ";" + a.getDelantero3() + ";" +
+                a.getEntrenador().getUser()).collect(Collectors.toList());
 
-        for (Alineacion a: arrayAlin)
+        /*for (Alineacion a: arrayAlin)
         {
             String alin = a.getDibujo() + ";" + a.getPortero() + ";" +
                     a.getDefensa1() + ";" + a.getDefensa2() + ";" + a.getDefensa3() + ";" + a.getDefensa4() + ";" + a.getDefensa5() + ";" +
@@ -469,7 +482,7 @@ public class MenuMiPlantilla
                     a.getDelantero1() + ";" + a.getDelantero2() + ";" + a.getDelantero3() + ";" +
                     a.getEntrenador().getUser();
             alineacionStr.add(alin);
-        }
+        }*/
 
         bdMan.insertData(alineacionStr, "Alineaciones");
         bdMan.closeLink();

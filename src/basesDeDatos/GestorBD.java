@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Es la clase que gestiona la BD con sus metodos principales
@@ -60,7 +61,7 @@ public class GestorBD
      * @param data arraylist de tipo string donde estan los datos a insertar de cada tupla
      * @param tabla la tabla en la que insertar
      */
-    public void insertData(ArrayList<String> data, String tabla)
+    public void insertData(List<String> data, String tabla)
     {
         if (tabla.equals("UsuariosYadmins"))
         {
