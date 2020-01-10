@@ -30,8 +30,7 @@ public class MenuAdministrador
         System.out.println("Bienvenido a Comunio, ¿Qué desea?\n" +
                 "1.- Resetear mercado y comparar pujas\n" +
                 "2.- Puntuar jugadores\n" +
-                "3.- Establecer puntuacion de los usuarios tras puntuar jornada\n" +
-                "4.- Cerrar sesión\n");
+                "3.- Cerrar sesión\n");
 
         System.out.println("Seleccione la opcion deseada:");
 
@@ -43,11 +42,9 @@ public class MenuAdministrador
                 break;
             case 2: puntuarJugadores (arrayJugadores, arrayUsuarios, arrayMarket);
                 break;
-            case 3: puntuarUsuariosTrasJornada (arrayJugadores, arrayUsuarios, arrayMarket);
+            case 3: Login.logIn();
                 break;
-            case 4: Login.logIn();
-                break;
-            default: System.out.println("Seleccione una opcion entre 1 y 4 por favor");
+            default: System.out.println("Seleccione una opcion entre 1 y 3 por favor");
                 break;
         }
     }
@@ -416,9 +413,11 @@ public class MenuAdministrador
         }
         gestor.closeLink();
 
-        ThreadPuntuarJugadores runnable = new ThreadPuntuarJugadores();
+        ThreadPuntuarJugadores runnable = new ThreadPuntuarJugadores(arrayUsuarios, arrayJugadores);
         Thread hilo = new Thread(runnable);
         hilo.start();
+
+
 
         System.out.println("Quieres continuar puntuando a otro equipo o aun no han terminado sus partidos? Para puntuar (1) para volver al menu administrador (0);");
         int x = Utilidades.leerEntero();
@@ -436,7 +435,7 @@ public class MenuAdministrador
      *
      * @return Devuelve un ArrayList de enteros con las respuestas obtenidas
      */
-    public static ArrayList <Integer>  preguntasRespuestasPuntuaciones ()
+    private static ArrayList <Integer>  preguntasRespuestasPuntuaciones ()
     {
         ArrayList <Integer> arrayRespuestas = new ArrayList<>();
 
@@ -460,74 +459,6 @@ public class MenuAdministrador
         arrayRespuestas.add(valoracion);
 
         return arrayRespuestas;
-    }
-
-    /**
-     * Este metodo puntua a los entrenadores despues de que el administrador haya puntuado a todos los jugadores en el apartado 2
-     * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
-     * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
-     * @param arrayMarket ArrayList donde se encuentran aquellos jugadores que estan en el mercado
-     */
-    public static void puntuarUsuariosTrasJornada (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayMarket)
-    {
-        System.out.println("Una vez puntuados todos los jugadores en el apartado 2, realizaremos la actualizaciones de los puntos de cada entrenador.\n");
-        ArrayList<Alineacion> arrayAlineaciones = SelectData.selectAllAlineaciones(arrayUsuarios, arrayJugadores);
-
-        GestorBD gestor = new GestorBD("Comunio.db");
-        int puntosTotalesJornada = 0;
-        int puntosJugador = 0;
-        
-        for (int i=0; i<arrayAlineaciones.size(); i++)
-        {
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.portero", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.defensa1", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.defensa2", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.defensa3", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.defensa4", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.defensa5", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.mediocentro1", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.mediocentro2", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.mediocentro3", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.mediocentro4", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.mediocentro5", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.delantero1", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.delantero2", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-            puntosJugador = SelectData.jugadorYsusPuntosTotales("A.delantero3", arrayAlineaciones.get(i).getEntrenador().getUser());
-            puntosTotalesJornada += puntosJugador;
-
-            gestor.createLink();
-            int puntosTotalesUsuario = arrayAlineaciones.get(i).getEntrenador().getPuntos() + puntosTotalesJornada;
-            gestor.updatePuntuacionTotalUsers(puntosTotalesUsuario, arrayAlineaciones.get(i).getEntrenador().getUser());
-
-        }
-
-        System.out.println("\nLos usuarios que habian puesto la alineacion para la jornada han sido puntuados y actualizados en la clasificacion, Gracias!" +
-                " Queda asi la clasificacion:\n");
-        arrayUsuarios = SelectData.selectAllUsers();
-        MenuUsuario.verClasificacion(arrayUsuarios, arrayJugadores, null);
-
-        for (Jugador a: arrayJugadores)
-        {
-            gestor.updateEstadisticasa0trasJornada(a.getNombre());
-        }
-        gestor.closeLink();
-
-        System.out.println("\nToca cualquier boton para volver al menu administrador: ");
-        String a = Utilidades.leerTexto();
-        menuAdministrador(arrayUsuarios, arrayJugadores, arrayMarket);
     }
 }
 

@@ -174,18 +174,23 @@ public class UpdateData
 
     public static void updatePuntuacionesA0trasJornada (String nombreJugador, Connection conn)
     {
-        String mySql = "UPDATE Jugadores set points = 0, minutos = 0, numGoles = 0, numAssist = 0, expulsado = 0, numParadas = 0, numPenaltisParados = 0, numGolesContra = 0, valoracion = 0 WHERE nombre = ?";
-
-        try (PreparedStatement pstmt = conn.prepareStatement(mySql))
+        if (nombreJugador == null)
         {
-            pstmt.setString(1, nombreJugador);
-
-            pstmt.executeUpdate();
+            System.out.println("hola");
+            return;
         }
 
-        catch (SQLException e)
-        {
-            e.printStackTrace();
+        else {
+            String mySql = "UPDATE Jugadores set points = 0, minutos = 0, numGoles = 0, numAssist = 0, expulsado = 0, numParadas = 0, numPenaltisParados = 0, numGolesContra = 0, valoracion = 0 WHERE nombre = ?";
+
+
+            try (PreparedStatement pstmt = conn.prepareStatement(mySql)) {
+                pstmt.setString(1, nombreJugador);
+
+                pstmt.executeUpdate();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
