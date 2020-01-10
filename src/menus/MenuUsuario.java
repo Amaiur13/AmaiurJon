@@ -136,10 +136,10 @@ public class MenuUsuario
             }
         }
         */
-        System.out.println("¿Que tipo de ordenacion desea realizar?" +
-                "1- Ordenacion por nombre" +
-                "2- Ordenacion por puntos" +
-                "3- Ordenacion por valor de equipo");
+        System.out.println("¿Que tipo de ordenacion desea realizar?\n" +
+                "1- Ordenacion por nombre\n" +
+                "2- Ordenacion por puntos\n" +
+                "3- Ordenacion por valor de equipo\n");
 
         System.out.println("Seleccione la opcion deseada:");
 

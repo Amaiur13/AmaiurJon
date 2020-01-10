@@ -14,14 +14,12 @@ public class CreateDB
     /**
      * Connecta a la bd "filename"
      *
-     * @param fileName nombre de la bd
+     * @param conn conexion de la bd
      */
-    public static void createNewDatabase(String fileName)
+    public static void createNewDatabase(Connection conn)
     {
 
-        String url = "jdbc:sqlite:" + fileName;
-
-        try (Connection conn = DriverManager.getConnection(url))
+        try
         {
             if (conn != null)
             {

@@ -45,15 +45,15 @@ public class VentanaCronometro extends JFrame
 
     public void iniciarHiloCronometro()
     {
-        CronometroThread [] arrayHilos = new CronometroThread[10];
+        /*CronometroThread [] arrayHilos = new CronometroThread[10];
 
         arrayHilos[contadorHilos] = new CronometroThread(label, VentanaCronometro.this, pujaRealizada);
         arrayHilos[contadorHilos].start();
-        contadorHilos++;
+        contadorHilos++;*/
 
 
-       // CronometroThread hilo = new CronometroThread(label, VentanaCronometro.this, pujaRealizada);
-        //hilo.start();
+       CronometroThread hilo = new CronometroThread(label, VentanaCronometro.this, pujaRealizada);
+       hilo.start();
     }
 
 }

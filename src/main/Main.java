@@ -16,7 +16,6 @@ public class Main
      */
     public static void main (String [] args)
     {
-    	
         /*GestorBD dbManager = new GestorBD("Comunio.db");
 
         dbManager.createLink();
@@ -113,7 +112,6 @@ public class Main
         dbManager.insertData(arrayJugadores, "Jugadores");
 
         dbManager.closeLink();*/
-
 
         System.out.println("Bienvenido, inicie sesion!");
         Login.logIn();

@@ -11,6 +11,8 @@ import usuariosAdmins.UsuariosYadmins;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /** Esta clase define el menu del administrador
  *
@@ -414,6 +416,10 @@ public class MenuAdministrador
         }
         gestor.closeLink();
 
+        ThreadPuntuarJugadores runnable = new ThreadPuntuarJugadores();
+        Thread hilo = new Thread(runnable);
+        hilo.start();
+
         System.out.println("Quieres continuar puntuando a otro equipo o aun no han terminado sus partidos? Para puntuar (1) para volver al menu administrador (0);");
         int x = Utilidades.leerEntero();
         if (x == 1)
@@ -505,14 +511,20 @@ public class MenuAdministrador
             gestor.createLink();
             int puntosTotalesUsuario = arrayAlineaciones.get(i).getEntrenador().getPuntos() + puntosTotalesJornada;
             gestor.updatePuntuacionTotalUsers(puntosTotalesUsuario, arrayAlineaciones.get(i).getEntrenador().getUser());
-            gestor.closeLink();
+
         }
 
         System.out.println("\nLos usuarios que habian puesto la alineacion para la jornada han sido puntuados y actualizados en la clasificacion, Gracias!" +
-                " Queda asi� la clasificacion:\n");
+                " Queda asi la clasificacion:\n");
         arrayUsuarios = SelectData.selectAllUsers();
         MenuUsuario.verClasificacion(arrayUsuarios, arrayJugadores, null);
-        
+
+        for (Jugador a: arrayJugadores)
+        {
+            gestor.updateEstadisticasa0trasJornada(a.getNombre());
+        }
+        gestor.closeLink();
+
         System.out.println("\nToca cualquier boton para volver al menu administrador: ");
         String a = Utilidades.leerTexto();
         menuAdministrador(arrayUsuarios, arrayJugadores, arrayMarket);

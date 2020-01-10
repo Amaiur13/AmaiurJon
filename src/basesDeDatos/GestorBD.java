@@ -37,6 +37,11 @@ public class GestorBD
         }
     }
 
+    public void createDataBase ()
+    {
+        CreateDB.createNewDatabase(this.conn);
+    }
+
     /**
      * Crea la tabla pujas
      */
@@ -126,7 +131,7 @@ public class GestorBD
      * @param enVenta pone enVenta a 0 para indicar que ha sido adquirido y no está en venta
      * @param dueno usuario comprador
      */
-    public void updateDataPuja (String nombre, int enVenta, String dueno)
+    public void updateDataPuja(String nombre, int enVenta, String dueno)
     {
         UpdateData.updateNoEnVenta(nombre,enVenta,this.conn,dueno);
     }
@@ -152,6 +157,11 @@ public class GestorBD
     public void updatePuntuacionTotalUsers (int puntos, String usuario)
     {
         UpdateData.updatePuntuacionTotalUsuario(puntos, usuario, this.conn);
+    }
+
+    public void updateEstadisticasa0trasJornada (String nombreJugador)
+    {
+        UpdateData.updatePuntuacionesA0trasJornada(nombreJugador, this.conn);
     }
 
     /**
