@@ -5,8 +5,8 @@ import ordenacion.MergeSort;
 import LP.Utilidades;
 
 import basesDeDatos.SelectData;
-import jugadores.*;
-import main.Login;
+import jugadoresPujaAlineacion.*;
+import mainSwing.Login;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 

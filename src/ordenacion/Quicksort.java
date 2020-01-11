@@ -2,19 +2,19 @@ package ordenacion;
 
 import java.util.ArrayList;
 
-import jugadores.Jugador;
+import jugadoresPujaAlineacion.Jugador;
 
 public class Quicksort 
 {
 	public static void quicksort(ArrayList <Jugador> arrayJugadores, int izq, int der) 
 	{
 		  int pivote=arrayJugadores.get(izq).getValor(); // tomamos primer elemento como pivote
-		  int i=izq; // i realiza la búsqueda de izquierda a derecha
-		  int j=der; // j realiza la búsqueda de derecha a izquierda
+		  int i=izq; // i realiza la bï¿½squeda de izquierda a derecha
+		  int j=der; // j realiza la bï¿½squeda de derecha a izquierda
 		  Jugador aux;
 		 
 		  while(i<j)
-		  {            // mientras no se crucen las búsquedas
+		  {            // mientras no se crucen las bï¿½squedas
 		     while(arrayJugadores.get(i).getValor() <= pivote && i<j)
 		     {
 		    	 i++;// busca elemento mayor que pivote y guarda su indice en i  A[i] seria.

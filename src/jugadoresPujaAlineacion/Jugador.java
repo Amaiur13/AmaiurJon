@@ -1,4 +1,4 @@
-package jugadores;
+package jugadoresPujaAlineacion;
 
 import usuariosAdmins.Usuario;
 

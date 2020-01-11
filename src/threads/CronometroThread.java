@@ -1,9 +1,10 @@
-package menus;
+package threads;
 
 import basesDeDatos.SelectData;
-import ficherosYbd.LecturaEscrituraFichero;
-import jugadores.Jugador;
-import jugadores.Puja;
+import ficheros.LecturaEscrituraFichero;
+import jugadoresPujaAlineacion.Jugador;
+import jugadoresPujaAlineacion.Puja;
+import menus.MenuAdministrador;
 import usuariosAdmins.UsuariosYadmins;
 
 import javax.swing.*;

@@ -3,13 +3,12 @@ package menus;
 import LP.Utilidades;
 import basesDeDatos.GestorBD;
 import basesDeDatos.SelectData;
-import jugadores.*;
+import jugadoresPujaAlineacion.*;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -464,7 +463,7 @@ public class MenuMiPlantilla
      */
     public static void actualizarTablaAlineacion (ArrayList <Alineacion> arrayAlin)
     {
-        List <String> alineacionStr = new ArrayList<>();
+        List <String> alineacionStr;
         GestorBD bdMan = new GestorBD("Comunio.db");
         bdMan.createLink();
 

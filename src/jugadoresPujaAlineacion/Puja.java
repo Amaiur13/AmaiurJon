@@ -1,6 +1,5 @@
-package jugadores;
+package jugadoresPujaAlineacion;
 
-import jugadores.Jugador;
 import usuariosAdmins.Usuario;
 
 /** Esta clase define la estructura de las pujas a los jugadores del mercado

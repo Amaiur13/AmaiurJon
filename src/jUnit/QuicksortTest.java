@@ -1,8 +1,8 @@
 package jUnit;
 
-import jugadores.Defensa;
-import jugadores.Jugador;
-import jugadores.Portero;
+import jugadoresPujaAlineacion.Defensa;
+import jugadoresPujaAlineacion.Jugador;
+import jugadoresPujaAlineacion.Portero;
 import ordenacion.Quicksort;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;

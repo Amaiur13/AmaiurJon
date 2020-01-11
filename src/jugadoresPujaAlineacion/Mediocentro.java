@@ -1,25 +1,31 @@
-package jugadores;
+package jugadoresPujaAlineacion;
 
 import interfaces.InterfazGeneral;
 import usuariosAdmins.Usuario;
 
-public class Delantero extends Jugador implements InterfazGeneral
+public class Mediocentro extends Jugador implements InterfazGeneral
 {
-    public Delantero(int numID, String nombre, String demarcacion, int valor, int points, int clausula, String team, int minutos, int numGoles, int numAssist, boolean expulsado, boolean disponible, boolean enVenta, Usuario dueno, int numParadas, int numPenaltisParados, int numGolesContra, int valoracion, int puntosTotales)
+    public Mediocentro ()
     {
-        super(numID,nombre, demarcacion, valor, points, clausula, team, minutos, numGoles, numAssist, expulsado, disponible, enVenta, dueno, numParadas, numPenaltisParados, numGolesContra, valoracion, puntosTotales);
+        super();
     }
 
 
+    public Mediocentro(int numID, String nombre, String demarcacion, int valor, int points, int clausula, String team, int minutos,  int numGoles, int numAssist, boolean expulsado, boolean disponible, boolean enVenta, Usuario dueno, int numParadas, int numPenaltisParados, int numGolesContra, int valoracion, int puntosTotales)
+    {
+        super(numID, nombre, demarcacion, valor, points, clausula, team, minutos, numGoles, numAssist, expulsado, disponible, enVenta, dueno, numParadas, numPenaltisParados, numGolesContra, valoracion, puntosTotales);
+    }
+
     /**
-     * Metodo que multiplica por 4 los goles metidos para obtener los puntos respecto a goles
+     * Metodo que multiplica por 5 los goles metidos para obtener los puntos respecto a goles
      * @return devuelve el numero de puntos
      */
     @Override
     public int marcarGol()
     {
-        return super.getNumGoles()*4;
+        return super.getNumGoles()*5;
     }
+
     /**
      * Metodo que devuelve -2 si ha sido expulsado el jugador
      * @return devuelve -2

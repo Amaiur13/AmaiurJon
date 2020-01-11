@@ -3,16 +3,14 @@ package menus;
 import LP.Utilidades;
 import basesDeDatos.GestorBD;
 import basesDeDatos.SelectData;
-import ficherosYbd.LecturaEscrituraFichero;
-import jugadores.*;
-import main.Login;
-import usuariosAdmins.Usuario;
+import ficheros.LecturaEscrituraFichero;
+import jugadoresPujaAlineacion.*;
+import mainSwing.Login;
+import threads.ThreadPuntuarJugadores;
 import usuariosAdmins.UsuariosYadmins;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.stream.Collectors;
 
 /** Esta clase define el menu del administrador
  *
@@ -413,7 +411,7 @@ public class MenuAdministrador
         }
         gestor.closeLink();
 
-        ThreadPuntuarJugadores runnable = new ThreadPuntuarJugadores(arrayUsuarios, arrayJugadores);
+        Runnable runnable = new ThreadPuntuarJugadores(arrayUsuarios, arrayJugadores);
         Thread hilo = new Thread(runnable);
         hilo.start();
 

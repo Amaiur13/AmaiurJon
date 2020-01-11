@@ -1,9 +1,9 @@
-package menus;
+package threads;
 
 import basesDeDatos.GestorBD;
 import basesDeDatos.SelectData;
-import jugadores.Alineacion;
-import jugadores.Jugador;
+import jugadoresPujaAlineacion.Alineacion;
+import jugadoresPujaAlineacion.Jugador;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
@@ -62,6 +62,7 @@ public class ThreadPuntuarJugadores implements Runnable
         ArrayList<Alineacion> arrayAlineaciones = SelectData.selectAllAlineaciones(arrayUsuarios, arrayJugadores);
 
         GestorBD gestor = new GestorBD("Comunio.db");
+        gestor.createLink();
         int puntosJugador = 0;
         int puntosTotalesJornada = 0;
 
@@ -97,7 +98,7 @@ public class ThreadPuntuarJugadores implements Runnable
             puntosJugador = SelectData.jugadorYsusPuntosTotales("A.delantero3", arrayAlineaciones.get(i).getEntrenador().getUser());
             puntosTotalesJornada += puntosJugador;
 
-            gestor.createLink();
+
             int puntosTotalesUsuario = arrayAlineaciones.get(i).getEntrenador().getPuntos() + puntosTotalesJornada;
             gestor.updatePuntuacionTotalUsers(puntosTotalesUsuario, arrayAlineaciones.get(i).getEntrenador().getUser());
         }

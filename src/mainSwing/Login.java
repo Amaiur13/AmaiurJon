@@ -1,9 +1,9 @@
-package main;
+package mainSwing;
 
 import LP.Utilidades;
 import basesDeDatos.SelectData;
-import ficherosYbd.LecturaEscrituraFichero;
-import jugadores.Jugador;
+import ficheros.LecturaEscrituraFichero;
+import jugadoresPujaAlineacion.Jugador;
 import menus.*;
 import usuariosAdmins.Administrador;
 import usuariosAdmins.Usuario;

@@ -1,6 +1,5 @@
-package jugadores;
+package jugadoresPujaAlineacion;
 
-import jugadores.*;
 import usuariosAdmins.Usuario;
 
 /** Define la alineacion de cada usuario

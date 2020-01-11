@@ -1,6 +1,6 @@
-package ficherosYbd;
+package ficheros;
 
-import jugadores.Jugador;
+import jugadoresPujaAlineacion.Jugador;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class LecturaEscrituraFichero
      */
     public static ArrayList<Jugador> leerFicheroMercado(ArrayList<Jugador> arrayJugadores) {
         ArrayList<Jugador> arrayMercado = new ArrayList<>();
-        File aFile = new File("./src/ficherosYbd/Mercado.txt");
+        File aFile = new File("./src/ficheros/Mercado.txt");
 
         try {
             FileReader fr = new FileReader(aFile);
@@ -55,7 +55,7 @@ public class LecturaEscrituraFichero
     public static boolean reset() {
         Boolean reset = false;
 
-        File aFile = new File("./src/ficherosYbd/Mercado.txt");
+        File aFile = new File("./src/ficheros/Mercado.txt");
 
         try {
             FileReader fr = new FileReader(aFile);
@@ -88,7 +88,7 @@ public class LecturaEscrituraFichero
      */
     public static void escribirFichero(ArrayList<Jugador> arrayMercado, int nuevaJornada)
     {
-        String path = "./src/ficherosYbd/Mercado.txt";
+        String path = "./src/ficheros/Mercado.txt";
         File aFile=new File(path);
 
         try

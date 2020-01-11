@@ -3,9 +3,10 @@ package menus;
 import LP.Utilidades;
 import basesDeDatos.GestorBD;
 import basesDeDatos.SelectData;
-import ficherosYbd.LecturaEscrituraFichero;
-import jugadores.Jugador;
-import jugadores.Puja;
+import ficheros.LecturaEscrituraFichero;
+import jugadoresPujaAlineacion.Jugador;
+import jugadoresPujaAlineacion.Puja;
+import threads.VentanaCronometro;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
@@ -15,7 +16,7 @@ import java.util.Random;
 /** Esta clase define todo lo relacionado con el mercado de la aplicacion
  *
  */
-public class MenuMercado extends Thread
+public class MenuMercado
 {
     /** Este metodo muestra el menu de la opcion mercado, con sus respectivas opciones
      *
@@ -290,7 +291,6 @@ public class MenuMercado extends Thread
         int numPujas = SelectData.selectAllPujasAboutPlayer(oferta.getJugador().getNombre());
 
         System.out.println("Tu oferta ha sido guardada, toca cualquier boton para volver al menu del mercado.");
-
         if (numPujas == 1)
         {
             VentanaCronometro ventanaCron = new VentanaCronometro(oferta);

@@ -1,6 +1,6 @@
 package basesDeDatos;
 
-import jugadores.*;
+import jugadoresPujaAlineacion.*;
 import usuariosAdmins.Administrador;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;

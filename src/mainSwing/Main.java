@@ -1,43 +1,22 @@
-package swing;
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.EventQueue;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Image;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.border.Border;
-import javax.swing.border.EmptyBorder;
-import javax.swing.border.EtchedBorder;
-import javax.swing.border.TitledBorder;
+package mainSwing;
 
 import basesDeDatos.SelectData;
 import excepciones.UsuarioContrasenaNoExiste;
-import ficherosYbd.LecturaEscrituraFichero;
-import jugadores.Jugador;
+import ficheros.LecturaEscrituraFichero;
+import jugadoresPujaAlineacion.Jugador;
 import menus.MenuAdministrador;
 import menus.MenuUsuario;
 import usuariosAdmins.Administrador;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 class Main extends JFrame {
 

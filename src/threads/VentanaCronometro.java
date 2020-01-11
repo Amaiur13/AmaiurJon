@@ -1,6 +1,6 @@
-package menus;
+package threads;
 
-import jugadores.Puja;
+import jugadoresPujaAlineacion.Puja;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,7 +21,8 @@ public class VentanaCronometro extends JFrame
 
     private void inicializar()
     {
-        setSize(228,120);
+        setTitle("Subasta " + pujaRealizada.getJugador().getNombre());
+        setSize(328,120);
         getContentPane().setLayout(null);
         setLocationRelativeTo(null);
 
@@ -29,14 +30,14 @@ public class VentanaCronometro extends JFrame
 
         label = new JLabel("00:00:00");
         label.setFont((new Font("Traditional Arabic", Font.PLAIN, 30)));
-        label.setBounds(47,18,137,45);
+        label.setBounds(57,22,137,45);
         getContentPane().add(label);
 
         String info = pujaRealizada.getJugador().getNombre();
         infoJugador = new JLabel(info);
-        infoJugador.setFont((new Font("Traditional Arabic", Font.PLAIN, 15)));
+        infoJugador.setFont((new Font("Traditional Arabic", Font.BOLD, 15)));
         infoJugador.setForeground(Color.blue);
-        infoJugador.setBounds(1,1, 130, 45);
+        infoJugador.setBounds(10,1, 130, 45);
         getContentPane().add(infoJugador);
 
 

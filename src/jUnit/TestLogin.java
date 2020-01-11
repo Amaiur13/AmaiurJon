@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import usuariosAdmins.Administrador;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
-import static main.Login.comprobarLogIn;
+import static mainSwing.Login.comprobarLogIn;
 
 import java.util.ArrayList;
 
