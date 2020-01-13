@@ -11,6 +11,8 @@ import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Stream;
 
 /** Esta clase contiene todo lo relacionado con el menu principal del usuario
  *
@@ -146,7 +148,7 @@ public class MenuUsuario
         int b = Utilidades.leerEntero();
 
         switch (b) {
-            case 1:
+            case 1: ordenacionNombre(arrayJugadores, arrayUsuarios, usuario);
                 break;
             case 2: ordenacionPuntos(arrayJugadores, arrayUsuarios, usuario);
                 break;
@@ -156,6 +158,17 @@ public class MenuUsuario
                 System.out.println("Seleccione una opcion entre 1 y 3 por favor");
                 break;
         }
+    }
+
+    public static void ordenacionNombre (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario)
+    {
+        List<UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
+
+        Stream<String> ordenado = arrayUsers.stream().filter(x->x.isEsAdmin()==false && !(x.getUser().equals("comunio"))).map(UsuariosYadmins::getUser).sorted();
+        ordenado.forEach(System.out::println);
+
+        MenuUsuario.verPlantillaUsuario(arrayJugadores, arrayUsuarios, usuario);
+
     }
 
         public static void ordenacionValor (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario){
