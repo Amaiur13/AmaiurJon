@@ -5,6 +5,9 @@ import jugadoresPujaAlineacion.Puja;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Clase que contiene la ventana o el frame del temporizador de las subastas
+ */
 public class VentanaCronometro extends JFrame
 {
     private JLabel label;
@@ -13,12 +16,19 @@ public class VentanaCronometro extends JFrame
     private JLabel infoJugador;
     static int contadorHilos = 0;
 
+    /**
+     * Constructor de la clase
+     * @param puja
+     */
     public VentanaCronometro (Puja puja)
     {
         this.pujaRealizada = puja;
         inicializar();
     }
 
+    /**
+     * Inicializa compenentes del frame
+     */
     private void inicializar()
     {
         setTitle("Subasta " + pujaRealizada.getJugador().getNombre());
@@ -44,6 +54,9 @@ public class VentanaCronometro extends JFrame
         iniciarHiloCronometro();
     }
 
+    /**
+     * Inicia el hilo de la subasta
+     */
     public void iniciarHiloCronometro()
     {
         /*CronometroThread [] arrayHilos = new CronometroThread[10];

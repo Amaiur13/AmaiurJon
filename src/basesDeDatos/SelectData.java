@@ -568,7 +568,11 @@ public class SelectData
     }
 
 
-
+    /**
+     * Cuenta cuantas pujas hay por un jugador en concreto
+     * @param nomJugador nombre el jugador
+     * @return devuelva entero con numero de pujas
+     */
     public static int selectAllPujasAboutPlayer (String nomJugador)
     {
         String sql = "SELECT count(jugador) AS numPujas from Pujas Where jugador = '" + nomJugador + "'";
@@ -660,6 +664,5 @@ public class SelectData
         }
 
         return puntos;
-
     }
 }

@@ -4,8 +4,17 @@ import java.util.ArrayList;
 
 import jugadoresPujaAlineacion.Jugador;
 
+/**
+ * Clase que contiene algoritmo Quicksort para ordenar
+ */
 public class Quicksort 
 {
+	/**
+	 * Metodo quicksort para ordenar jugadores por valor
+	 * @param arrayJugadores arraylist de los jugadores
+	 * @param izq indice primer elemento
+	 * @param der indice ultimo elemento
+	 */
 	public static void quicksort(ArrayList <Jugador> arrayJugadores, int izq, int der) 
 	{
 		  int pivote=arrayJugadores.get(izq).getValor(); // tomamos primer elemento como pivote

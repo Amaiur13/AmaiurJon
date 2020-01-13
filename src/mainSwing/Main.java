@@ -50,12 +50,12 @@ class Main extends JFrame {
 	{
 		getContentPane().setLayout(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0,0, 800, 600);
+		setBounds(0,0, 500, 300);
 		setTitle("LogIn");
 		setLocationRelativeTo(null);
 		
 		Toolkit miPantalla = Toolkit.getDefaultToolkit();
-		foto = miPantalla.getImage("./src/swing/comunio.jpeg");
+		foto = miPantalla.getImage("./src/mainSwing/comunio.jpeg");
 		setIconImage(foto);
 		
 		arrayUsuarios = SelectData.selectAllUsers();
@@ -74,16 +74,19 @@ class Main extends JFrame {
 		//contentPane.add(labelFondo);
 		
 	}
-	
+
+	/**
+	 * Inicia compenente de la ventana
+	 */
 	private void iniciarComponentes()
 	{
 		JPanel panel = new JPanel(null);
 		panel.setBounds(0, 0, 778, 544);
 		
 		JLabel bienvenido = new JLabel("Bienvenido a comunio");
-		bienvenido.setBounds(200,10,500,50); //primero location luego size (x,y,ancho,alto)
-		bienvenido.setFont(new Font("Arial", Font.PLAIN, 30));
-		bienvenido.setForeground(Color.GRAY);
+		bienvenido.setBounds(70,10,500,50); //primero location luego size (x,y,ancho,alto)
+		bienvenido.setFont(new Font("Arial", Font.BOLD, 30));
+		bienvenido.setForeground(Color.GREEN);
 		panel.add(bienvenido);
 		
 		JTextField txtUser = new JTextField("User");
@@ -171,8 +174,15 @@ class Main extends JFrame {
 		panel.setVisible(true);
 		
 	}
-	
-	
+
+	/**
+	 * Comprueba si los datos introducidos del LogIn son correctos
+	 * @param usuario usuario introducido
+	 * @param contra contraseña introducida
+	 * @param arrayUsuarios arraylist con usuarios de la bd
+	 * @return devuelve el usuario o administrador en cuestion si los datos son correctos y sino null
+	 * @throws UsuarioContrasenaNoExiste para el mensaje de error
+	 */
 	 private UsuariosYadmins comprobarLogIn (String usuario, String contra, ArrayList <UsuariosYadmins> arrayUsuarios) throws UsuarioContrasenaNoExiste
      {
         int aux = 0;
@@ -222,7 +232,7 @@ class Main extends JFrame {
 
         else
         {
-            throw new UsuarioContrasenaNoExiste("Usuario o contrase�a incorrecta.");
+            throw new UsuarioContrasenaNoExiste("Usuario o contrasena incorrecta.");
         }
     }
 	

@@ -109,7 +109,8 @@ public class MenuMercado
 
     }
 
-    /** Este metodo se encarga de la compra de jugadores por parte de los usuarios
+    /** Este metodo se encarga de la compra de jugadores por parte de los usuarios,
+     * ademas comienza un hilo en paralelo con el contador de la subasta
      *
      * @param arrayUsuarios ArrayList donde se encuentran todos los datos de los usuarios
      * @param arrayJugadores ArrayList donde se encuentran todos los jugadores, con sus respectivos datos

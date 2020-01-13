@@ -88,7 +88,7 @@ public class MenuAdministrador
         menuAdministrador(arrayUsuarios, arrayJugadores, arrayMarket);
     }
 
-    /** Este metodo define el proceso de puja y compra de los jugadores del mercado
+    /** Este metodo lo usa el Thread de la subasta, es similar al anterior pero sin sysos y cambios necesarios para que concuerde bien con el hilo.
      *
      * @param arrayMarket ArrayList donde se encuentran aquellos jugadores que estan en el mercado
      * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
