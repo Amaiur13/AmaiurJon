@@ -172,6 +172,11 @@ public class UpdateData
         }
     }
 
+    /**
+     * Actualiza estadisticas de un jugador a 0 tras jornada
+     * @param nombreJugador nombre del jugador
+     * @param conn conexion de la bd
+     */
     public static void updatePuntuacionesA0trasJornada (String nombreJugador, Connection conn)
     {
         if (nombreJugador == null)

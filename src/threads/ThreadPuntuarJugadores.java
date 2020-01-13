@@ -15,12 +15,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Clase que implementa el runnable para el thread de la clasificacion tras puntuar jugadores de un equipo
+ */
 public class ThreadPuntuarJugadores implements Runnable
 {
     ArrayList <UsuariosYadmins> arrayUsuarios;
     ArrayList <Jugador> arrayJugadores;
     JLabel clasificacion;
 
+    /**
+     * Constructor de la clase
+     * @param arrayUsuarios arraylist de los usuarios
+     * @param arrayJugadores arraylist de los jugadores
+     */
     public ThreadPuntuarJugadores (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores)
     {
         this.arrayJugadores = arrayJugadores;
@@ -56,6 +64,9 @@ public class ThreadPuntuarJugadores implements Runnable
         frame.setVisible(true);
     }
 
+    /**
+     * Metodo para puntuar a los jugadores
+     */
     private void puntuarJugadores ()
     {
         arrayUsuarios = SelectData.selectAllUsers();
@@ -110,6 +121,10 @@ public class ThreadPuntuarJugadores implements Runnable
         gestor.closeLink();
     }
 
+    /**
+     * Metodo para ordenar a los usuarios por puntuacion
+     * @return devuelve el stream con los usuarios ordenados
+     */
     private Stream<Usuario> ordenarUsuariosPorPuntuacion ()
     {
         this.arrayUsuarios = SelectData.selectAllUsers();

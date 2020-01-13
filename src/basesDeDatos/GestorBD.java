@@ -37,6 +37,9 @@ public class GestorBD
         }
     }
 
+    /**
+     * Crea la DB
+     */
     public void createDataBase ()
     {
         CreateDB.createNewDatabase(this.conn);
@@ -154,11 +157,20 @@ public class GestorBD
         UpdateData.updatePuntuaciones(nombre, points, minutos, numGoles, numAssist, expulsado, numParadas, numPenaltisParados, numGolesContra, valoracion, puntosTotales, this.conn);
     }
 
+    /**
+     * Actualiza la puntuacionTotal de los usuarios
+     * @param puntos puntos totales del usuario
+     * @param usuario usuario
+     */
     public void updatePuntuacionTotalUsers (int puntos, String usuario)
     {
         UpdateData.updatePuntuacionTotalUsuario(puntos, usuario, this.conn);
     }
 
+    /**
+     * Actualiza estadisticas de los jugadores tras finalizar jornada
+     * @param nombreJugador jugador a reiniciar estadisticas
+     */
     public void updateEstadisticasa0trasJornada (String nombreJugador)
     {
         UpdateData.updatePuntuacionesA0trasJornada(nombreJugador, this.conn);

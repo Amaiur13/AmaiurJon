@@ -1,1 +1,1 @@
-Soldado;Montoro;Carrico;Nolito;Diego Carlos;Brahim;Oliver Torres;Carles Perez;James;Ocampos;Griezmann;Dembele;Ansu fati;;;;;;;true
+Chicharito;Munir;Oliver Torres;Nacho;Jovic;Isco;Militao;Fernando;Yangel;Areola;Griezmann;Dembele;Ansu fati;;;;;;;true

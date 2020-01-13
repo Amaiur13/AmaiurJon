@@ -10,12 +10,21 @@ import usuariosAdmins.UsuariosYadmins;
 import javax.swing.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que contiene la logica del thread de las subastas, hace que el temporizador decrezca segundo a segundo
+ */
 public class CronometroThread extends Thread
 {
     JLabel eti;
     VentanaCronometro ventCron;
     Puja puja;
 
+    /**
+     * Constructor de la clase
+     * @param cronometro el label que contiene el temporizador
+     * @param ventanaCron la ventana del temporizador
+     * @param puja la puja la cual se esta subastando
+     */
     public CronometroThread (JLabel cronometro, VentanaCronometro ventanaCron, Puja puja)
     {
         this.eti = cronometro;
@@ -23,6 +32,9 @@ public class CronometroThread extends Thread
         this.puja = puja;
     }
 
+    /**
+     * Metodo run que ejecuta el hilo
+     */
     public void run ()
     {
         try
@@ -53,6 +65,9 @@ public class CronometroThread extends Thread
         }
     }
 
+    /**
+     * Metodo que se encarga de que el temporizador funcione, que baje un segundo cada segundo
+     */
     private  void ejecutarHiloCronometro()
     {
 
