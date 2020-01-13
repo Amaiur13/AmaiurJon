@@ -12,31 +12,45 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.*;
 
 class TestMergeSort {
-    private static Usuario user1;
-    private static Usuario user2;
-    private static Usuario user3;
+    private static Usuario usuarioJon, usuarioAritz, usuarioPaul;
     private static ArrayList <Usuario> arrayUsuarios;
 
-    @BeforeEach
-    void setUp() {
-        user1 = new Usuario("jon", "zaba", false, 50, 100000, 30000);
-        user2 = new Usuario("amaiur", "2", false, 100, 200000, 200000);
+    @org.junit.jupiter.api.BeforeEach
+    void setUp()
+    {
+        usuarioJon = new Usuario("jon", "zaba", false, 80, 73000000, 97000000);
+        usuarioAritz = new Usuario("aritz", "eraun", false, 45,5550000,45000000);
+        usuarioPaul = new Usuario("paul", "fer", false, 60, 70000000, 94000000);
         arrayUsuarios = new ArrayList<>();
-        arrayUsuarios.add(user1);
-        arrayUsuarios.add(user2);
+
+        arrayUsuarios.add(usuarioJon);
+        arrayUsuarios.add(usuarioAritz);
+        arrayUsuarios.add(usuarioPaul);
+
+
     }
 
-    @AfterEach
+    @org.junit.jupiter.api.AfterEach
     void tearDown() {
+    }
+    @org.junit.jupiter.api.Test
+    void testMergeSortPuntos ()
+    {
+        MergeSort.mergesort(arrayUsuarios, 0, arrayUsuarios.size()-1, 0);
+        for (int j = 0; j<arrayUsuarios.size()-1; j++)
+        {
+            assertTrue(arrayUsuarios.get(j).getPuntos()>arrayUsuarios.get(j+1).getPuntos());
+        }
+
     }
 
     @Test
-    void mergesort() {
+    void testMergeSortValor ()
+    {
         MergeSort.mergesort(arrayUsuarios, 0, arrayUsuarios.size()-1, 1);
-
-        for (int i=0; i<arrayUsuarios.size()-1; i++)
+        for (int j = 0; j<arrayUsuarios.size()-1; j++)
         {
-            assertTrue(arrayUsuarios.get(i).getPuntos() > arrayUsuarios.get(i+1).getPuntos());
+            assertTrue(arrayUsuarios.get(j).getValorEquipo()>arrayUsuarios.get(j+1).getValorEquipo());
         }
     }
 }
