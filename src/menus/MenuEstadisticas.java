@@ -21,11 +21,20 @@ import jugadoresPujaAlineacion.Jugador;
 import ordenacion.Quicksort;
 import usuariosAdmins.UsuariosYadmins;
 
+/** Esta clase define el menu de las estadisticas
+ *
+ */
 public class MenuEstadisticas 
 {
+	/** Este metodo define el menu de las estadisticas
+	 *
+	 * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
+	 * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
+	 * @param usuario Objeto de tipo UsuariosYAdmins que contiene el nombre del usuario
+	 */
 	public static void menuEstadisticas (ArrayList<UsuariosYadmins> arrayUsuarios, ArrayList<Jugador> arrayJugadores, UsuariosYadmins usuario)
 	{
-		 System.out.println("Has seleccionado la opcion 'Estadisticas'. ¿Que desea hacer?\n" +
+		 System.out.println("Has seleccionado la opcion 'Estadisticas'. ï¿½Que desea hacer?\n" +
 	                "1.- Filtrar jugadores por puntos\n" +
 	                "2.- Filtrar jugadores por equipo\n" +
 	                "3.- Jugadores ordenados por valor\n" +
@@ -46,7 +55,13 @@ public class MenuEstadisticas
 	            default: System.out.println("Seleccione una opcion entre 1 y 4 por favor");
 	        }
 	}
-	
+
+	/** Este metodo define el filtrado de jugadores por puntos
+	 *
+	 * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
+	 * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
+	 * @param usuario Objeto de tipo UsuariosYAdmins que contiene el nombre del usuario
+	 */
 	public static void filtrarPorPuntos (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList<Jugador> arrayJugadores, UsuariosYadmins usuario)
 	{
 		JFrame framePuntos = new JFrame();
@@ -127,7 +142,12 @@ public class MenuEstadisticas
 		panel.add(buscar1);
 	}
 
-	
+	/** Este metodo define el filtrado de jugadores segun sus respectivos equipos
+	 *
+	 * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
+	 * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
+	 * @param usuario Objeto de tipo UsuariosYAdmins que contiene el nombre del usuario
+	 */
 	public static void filtrarPorEquipo (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList<Jugador> arrayJugadores, UsuariosYadmins usuario)
 	{
 		System.out.println("Introduce el nombre del equipo cuyos jugadores quieras ver: ");
@@ -152,7 +172,13 @@ public class MenuEstadisticas
 			MenuEstadisticas.menuEstadisticas(arrayUsuarios, arrayJugadores, usuario);
 		}
 	}
-	
+
+	/** Este metodo define el filtrado de jugadores segun el valor de cada uno
+	 *
+	 * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
+	 * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
+	 * @param usuario Objeto de tipo UsuariosYAdmins que contiene el nombre del usuario
+	 */
 	public static void filtrarPorValor (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList<Jugador> arrayJugadores, UsuariosYadmins usuario)
 	{
 		Quicksort.quicksort(arrayJugadores, 0, arrayJugadores.size() - 1);

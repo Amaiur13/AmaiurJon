@@ -160,6 +160,12 @@ public class MenuUsuario
         }
     }
 
+    /** Este metodo se encarga de ordenar a los usuarios en orden alfabetico, de la A a la Z
+     *
+     * @param arrayJugadores ArrayList que guarda todos los jugadores con sus respectivos datos
+     * @param arrayUsuarios ArrayList que guarda todos los datos de los usuarios
+     * @param usuario Usuario con el que hemos iniciado sesion
+     */
     public static void ordenacionNombre (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario)
     {
         List<UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
@@ -171,100 +177,119 @@ public class MenuUsuario
 
     }
 
-        public static void ordenacionValor (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario){
-            ArrayList <UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
+    /** Este metodo se encarga de ordenar a los usuarios dependediendo del valor de su equipo, de mayor a menor
+     *
+     * @param arrayJugadores ArrayList que guarda todos los jugadores con sus respectivos datos
+     * @param arrayUsuarios ArrayList que guarda todos los datos de los usuarios
+     * @param usuario Usuario con el que hemos iniciado sesion
+     */
+    public static void ordenacionValor (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario){
+        ArrayList <UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
 
 
-                    for (int k=0; k<arrayUsuarios.size(); k++)
-            {
-                if (!(arrayUsuarios.get(k) instanceof Usuario) || arrayUsuarios.get(k).getUser().equals("comunio"))
-                {
-                    arrayUsuarios.remove(k);
-                }
-            }
-
-            Usuario b = new Usuario ();
-            ArrayList <Usuario> arraySoloUsuarios = new ArrayList<>();
-                    for (UsuariosYadmins a: arrayUsuarios)
-            {
-                b = (Usuario) a;
-                arraySoloUsuarios.add(b);
-            }
-
-                    MergeSort.mergesort(arraySoloUsuarios, 0, arraySoloUsuarios.size()-1,0);
-
-            Usuario user = new Usuario ();
-                    for (UsuariosYadmins a: arraySoloUsuarios)
-            {
-                user = (Usuario) a;
-                System.out.println(user.getUser() + "    " + user.getValorEquipo() + " euros");
-            }
-                    MenuUsuario.verPlantillaUsuario(arrayJugadores, arrayUsuarios, usuario);
-        }
-        public static void ordenacionPuntos (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario)
+                for (int k=0; k<arrayUsuarios.size(); k++)
         {
-            ArrayList <UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
-
-
-            for (int k=0; k<arrayUsuarios.size(); k++)
+            if (!(arrayUsuarios.get(k) instanceof Usuario) || arrayUsuarios.get(k).getUser().equals("comunio"))
             {
-                if (!(arrayUsuarios.get(k) instanceof Usuario) || arrayUsuarios.get(k).getUser().equals("comunio"))
-                {
-                    arrayUsuarios.remove(k);
-                }
+                arrayUsuarios.remove(k);
             }
-
-            Usuario b = new Usuario ();
-            ArrayList <Usuario> arraySoloUsuarios = new ArrayList<>();
-            for (UsuariosYadmins a: arrayUsuarios)
-            {
-                b = (Usuario) a;
-                arraySoloUsuarios.add(b);
-            }
-
-            MergeSort.mergesort(arraySoloUsuarios, 0, arraySoloUsuarios.size()-1,1);
-
-            Usuario user = new Usuario ();
-            for (UsuariosYadmins a: arraySoloUsuarios)
-            {
-                user = (Usuario) a;
-                System.out.println(user.getUser() + "    " + user.getPuntos() + "  puntos");
-            }
-            MenuUsuario.verPlantillaUsuario(arrayJugadores, arrayUsuarios, usuario);
         }
 
-        public static void verPlantillaUsuario (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario) {
-            System.out.println("Nombre del entrenador cuya plantilla quieras ver: ");
-            String nombre = Utilidades.leerTexto();
-            UsuariosYadmins usuarioPlantilla = null;
+        Usuario b = new Usuario ();
+        ArrayList <Usuario> arraySoloUsuarios = new ArrayList<>();
+                for (UsuariosYadmins a: arrayUsuarios)
+        {
+            b = (Usuario) a;
+            arraySoloUsuarios.add(b);
+        }
 
-            boolean aux = false;
+                MergeSort.mergesort(arraySoloUsuarios, 0, arraySoloUsuarios.size()-1,0);
+
+        Usuario user = new Usuario ();
+                for (UsuariosYadmins a: arraySoloUsuarios)
+        {
+            user = (Usuario) a;
+            System.out.println(user.getUser() + "    " + user.getValorEquipo() + " euros");
+        }
+                MenuUsuario.verPlantillaUsuario(arrayJugadores, arrayUsuarios, usuario);
+    }
+
+    /** Este metodo se encarga de ordenar a los usuarios dependiendo del cumputo global de puntos, de mayor a menor
+     *
+     * @param arrayJugadores ArrayList que guarda todos los jugadores con sus respectivos datos
+     * @param arrayUsuarios ArrayList que guarda todos los datos de los usuarios
+     *  @param usuario Usuario con el que hemos iniciado sesion
+     */
+    public static void ordenacionPuntos (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario)
+    {
+        ArrayList <UsuariosYadmins> arrayUsers = SelectData.selectAllUsers();
+
+
+        for (int k=0; k<arrayUsuarios.size(); k++)
+        {
+            if (!(arrayUsuarios.get(k) instanceof Usuario) || arrayUsuarios.get(k).getUser().equals("comunio"))
+            {
+                arrayUsuarios.remove(k);
+            }
+        }
+
+        Usuario b = new Usuario ();
+        ArrayList <Usuario> arraySoloUsuarios = new ArrayList<>();
+        for (UsuariosYadmins a: arrayUsuarios)
+        {
+            b = (Usuario) a;
+            arraySoloUsuarios.add(b);
+        }
+
+        MergeSort.mergesort(arraySoloUsuarios, 0, arraySoloUsuarios.size()-1,1);
+
+        Usuario user = new Usuario ();
+        for (UsuariosYadmins a: arraySoloUsuarios)
+        {
+            user = (Usuario) a;
+            System.out.println(user.getUser() + "    " + user.getPuntos() + "  puntos");
+        }
+        MenuUsuario.verPlantillaUsuario(arrayJugadores, arrayUsuarios, usuario);
+    }
+
+    /** Este metodo se encarga de mostrar la plantilla del usuario deseado
+     *
+     * @param arrayJugadores ArrayList que guarda todos los jugadores con sus respectivos datos
+     * @param arrayUsuarios ArrayList que guarda todos los datos de los usuarios
+     * @param usuario Usuario con el que hemos iniciado sesion
+     */
+    public static void verPlantillaUsuario (ArrayList <Jugador> arrayJugadores, ArrayList <UsuariosYadmins> arrayUsuarios, UsuariosYadmins usuario) {
+        System.out.println("Nombre del entrenador cuya plantilla quieras ver: ");
+        String nombre = Utilidades.leerTexto();
+        UsuariosYadmins usuarioPlantilla = null;
+
+        boolean aux = false;
+        for (UsuariosYadmins a : arrayUsuarios) {
+            if (nombre.equals(a.getUser())) {
+                usuarioPlantilla = a;
+                break;
+            }
+        }
+
+        while (usuarioPlantilla == null) {
+            System.out.println(" Ese entrenador no existe, introduce otro que exista: ");
+            nombre = Utilidades.leerTexto();
+            usuarioPlantilla = null;
+
+            aux = false;
             for (UsuariosYadmins a : arrayUsuarios) {
                 if (nombre.equals(a.getUser())) {
                     usuarioPlantilla = a;
                     break;
                 }
             }
-
-            while (usuarioPlantilla == null) {
-                System.out.println(" Ese entrenador no existe, introduce otro que exista: ");
-                nombre = Utilidades.leerTexto();
-                usuarioPlantilla = null;
-
-                aux = false;
-                for (UsuariosYadmins a : arrayUsuarios) {
-                    if (nombre.equals(a.getUser())) {
-                        usuarioPlantilla = a;
-                        break;
-                    }
-                }
-            }
-
-            MenuMiPlantilla.verPlantilla(arrayUsuarios, arrayJugadores, usuarioPlantilla, false);
-
-            System.out.println("\nToca cualquier boton para volver al menu del mercado.");
-            String x = Utilidades.leerTexto();
-            menuUsuario(arrayUsuarios, arrayJugadores, usuario);
         }
+
+        MenuMiPlantilla.verPlantilla(arrayUsuarios, arrayJugadores, usuarioPlantilla, false);
+
+        System.out.println("\nToca cualquier boton para volver al menu del mercado.");
+        String x = Utilidades.leerTexto();
+        menuUsuario(arrayUsuarios, arrayJugadores, usuario);
     }
+}
 

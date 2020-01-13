@@ -296,7 +296,6 @@ public class MenuMercado
             VentanaCronometro ventanaCron = new VentanaCronometro(oferta);
             ventanaCron.setVisible(true);
         }
-
         String x = Utilidades.leerTexto();
         MenuUsuario.menuUsuario(arrayUsuarios, arrayJugadores, usuario);
     }

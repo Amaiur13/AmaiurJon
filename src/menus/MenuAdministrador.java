@@ -88,6 +88,13 @@ public class MenuAdministrador
         menuAdministrador(arrayUsuarios, arrayJugadores, arrayMarket);
     }
 
+    /** Este metodo define el proceso de puja y compra de los jugadores del mercado
+     *
+     * @param arrayMarket ArrayList donde se encuentran aquellos jugadores que estan en el mercado
+     * @param arrayUsuarios ArrayList donde se encuentran los datos de todos los usuarios
+     * @param arrayJugadores ArrayList donde se encuentran todos los jugadores de la aplicacion, con sus respectivos datos
+     * @param puja Objeto tipo puja que contiene la informacion de cada una de las pujas
+     */
     public static void compararPujasAutomaticas (ArrayList <Jugador> arrayMarket, ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores, Puja puja)
     {
         boolean reset=false;
