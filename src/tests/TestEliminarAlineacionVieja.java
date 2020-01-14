@@ -1,4 +1,4 @@
-package jUnit;
+package tests;
 
 import basesDeDatos.SelectData;
 import jugadoresPujaAlineacion.*;

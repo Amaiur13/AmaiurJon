@@ -57,7 +57,8 @@ class Main extends JFrame {
 		Toolkit miPantalla = Toolkit.getDefaultToolkit();
 		foto = miPantalla.getImage("./src/mainSwing/comunio.jpeg");
 		setIconImage(foto);
-		
+
+
 		arrayUsuarios = SelectData.selectAllUsers();
 		arrayJugadores = SelectData.selectAllPlayers(arrayUsuarios);
 		arrayMarket = LecturaEscrituraFichero.leerFicheroMercado(arrayJugadores);

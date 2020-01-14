@@ -72,8 +72,8 @@ public class MenuEstadisticas
 		framePuntos.add(panel);
 		panel.setVisible(true);
 		
-		framePuntos.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		framePuntos.setBounds(400, 250, 400, 300);
+		framePuntos.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		framePuntos.setBounds(400, 250, 400, 150);
 		framePuntos.setTitle("Estadisticas por puntos");
 		
 		JLabel label1 = new JLabel("Jugadores con MENOS de ");

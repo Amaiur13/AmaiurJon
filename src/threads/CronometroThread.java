@@ -42,7 +42,7 @@ public class CronometroThread extends Thread
 
             while ((ventCron.hora !=0) || (ventCron.minuto !=0) || (ventCron.segundo !=0))
             {
-                Thread.sleep(300);
+                Thread.sleep(1000);
                 ejecutarHiloCronometro();
             }
 
@@ -70,19 +70,15 @@ public class CronometroThread extends Thread
      */
     private  void ejecutarHiloCronometro()
     {
-
         if (ventCron.segundo == 0)
         {
             ventCron.segundo = 59;
             ventCron.minuto--;
         }
-
         else
         {
             ventCron.segundo--;
         }
-
-
 
         String txtHora = "", txtMin = "", txtSeg = "";
 

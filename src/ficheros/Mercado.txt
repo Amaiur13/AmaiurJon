@@ -1,1 +1,1 @@
-Chicharito;Munir;Oliver Torres;Nacho;Jovic;Isco;Militao;Fernando;Yangel;Areola;Griezmann;Dembele;Ansu fati;;;;;;;true
+Riqui Puig;Victor Diaz;Darwin Machis;Nolito;James;Fede Valverde;Ocampos;Diego Carlos;Montoro;Chicharito;Griezmann;Dembele;Ansu fati;Mendy;;;;;;false

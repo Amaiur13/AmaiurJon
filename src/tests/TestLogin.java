@@ -1,4 +1,4 @@
-package jUnit;
+package tests;
 
 import basesDeDatos.SelectData;
 import org.junit.jupiter.api.AfterEach;
@@ -49,5 +49,6 @@ class TestLogin
         assertTrue(user.getPassword().equals(userExpected.getPassword()));
         assertEquals(null, comprobarLogIn("iñigo", "lopez", arrayusuarios));
         assertEquals(admin.getUser(), adminExpected.getUser());
+
     }
 }

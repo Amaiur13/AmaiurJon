@@ -25,10 +25,10 @@ public class MenuAdministrador
      */
     public  static void menuAdministrador (ArrayList<UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores, ArrayList <Jugador> arrayMarket)
     {
-        System.out.println("Bienvenido a Comunio, ¿Qué desea?\n" +
+        System.out.println("Bienvenido a Comunio, que desea?\n" +
                 "1.- Resetear mercado y comparar pujas\n" +
                 "2.- Puntuar jugadores\n" +
-                "3.- Cerrar sesión\n");
+                "3.- Cerrar sesion\n");
 
         System.out.println("Seleccione la opcion deseada:");
 

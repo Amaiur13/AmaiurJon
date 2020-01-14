@@ -1,11 +1,9 @@
-package jUnit;
+package tests;
 
 import jugadoresPujaAlineacion.Defensa;
 import jugadoresPujaAlineacion.Jugador;
 import jugadoresPujaAlineacion.Portero;
-import ordenacion.MergeSort;
 import ordenacion.Quicksort;
-import org.junit.jupiter.api.Test;
 import usuariosAdmins.Usuario;
 import usuariosAdmins.UsuariosYadmins;
 

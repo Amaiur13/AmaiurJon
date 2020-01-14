@@ -1,4 +1,4 @@
-package jUnit;
+package tests;
 
 import basesDeDatos.GestorBD;
 import basesDeDatos.SelectData;

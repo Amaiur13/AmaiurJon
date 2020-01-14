@@ -14,10 +14,10 @@ public class VentanaCronometro extends JFrame
     int hora=0, minuto=2, segundo=0;
     Puja pujaRealizada;
     private JLabel infoJugador;
-    static int contadorHilos = 0;
+    //static int contadorHilos = 0;
 
     /**
-     * Constructor de la clase
+     * Constructor de la ventana
      * @param puja
      */
     public VentanaCronometro (Puja puja)
@@ -27,7 +27,7 @@ public class VentanaCronometro extends JFrame
     }
 
     /**
-     * Inicializa compenentes del frame
+     * inicializa los componentes de la ventana
      */
     private void inicializar()
     {
@@ -55,7 +55,7 @@ public class VentanaCronometro extends JFrame
     }
 
     /**
-     * Inicia el hilo de la subasta
+     * Inicializa el hilo del temporizador
      */
     public void iniciarHiloCronometro()
     {

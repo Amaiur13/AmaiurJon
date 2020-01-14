@@ -25,7 +25,7 @@ public class MenuMiPlantilla
      */
     public static void miPlantilla (ArrayList<UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores, UsuariosYadmins usuario)
     {
-        System.out.println("Has seleccionado la opcion 'Mi Plantilla'. ¿Que desea hacer?\n" +
+        System.out.println("Has escogido la opcion 'Mi Plantilla'. Que desea hacer?\n" +
                 "1.- Ver plantilla\n" +
                 "2.- Ver alineacion\n" +
                 "3.- Poner alineacion\n" +
@@ -58,6 +58,9 @@ public class MenuMiPlantilla
      */
     public static void verPlantilla (ArrayList <UsuariosYadmins> arrayUsuarios, ArrayList <Jugador> arrayJugadores, UsuariosYadmins usuario, boolean volverAlMenu)
     {
+        arrayUsuarios = SelectData.selectAllUsers();
+        arrayJugadores = SelectData.selectAllPlayers(arrayUsuarios);
+
     	Stream <String> arrayNombres = arrayJugadores.stream()
     												 .filter(u -> u.getDueno().getUser().equals(usuario.getUser()))
     												 .map(Jugador::getNombre);

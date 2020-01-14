@@ -1,11 +1,8 @@
-package jUnit;
+package tests;
 
 import ordenacion.MergeSort;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import usuariosAdmins.Usuario;
-import usuariosAdmins.UsuariosYadmins;
 
 import java.util.ArrayList;
 
